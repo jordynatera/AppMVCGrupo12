@@ -1,0 +1,29 @@
+﻿
+@model AppMVCGrupo12.Models.Empleado
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <form class="form-control" method="post" action="/Home/Capturar">
+            <div>
+                <input name="idEmpleado" placeholder="Id Empleado" type="text" value="" />
+                <input name="nombreEmpleado" placeholder="Nombre del Empleado" type="text" value="@ViewBag.msg" />
+                <input name="sueldoEmpleado" placeholder="Sueldo del Empleado" type="text" value="" />
+            </div>
+
+            <div>
+                <input name="submit" type="submit" value="Aceptar" />
+            </div>
+
+            <div>
+                @ViewBag.msg
+            </div>
+        </form>
+    </div>
+</body>
+</html>
