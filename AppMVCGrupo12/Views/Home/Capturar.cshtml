@@ -11,9 +11,9 @@
     <div>
         <form class="form-control" method="post" action="/Home/Capturar">
             <div>
-                <input name="idEmpleado" placeholder="Id Empleado" type="text" value="" />
-                <input name="nombreEmpleado" placeholder="Nombre del Empleado" type="text" value="@ViewBag.msg" />
-                <input name="sueldoEmpleado" placeholder="Sueldo del Empleado" type="text" value="" />
+                <input name="idEmpleado" placeholder="Id Empleado" type="text" value="@Model.idEmpleado" />
+                <input name="nombreEmpleado" placeholder="Nombre del Empleado" type="text" value="@Model.nombreEmpleado" />
+                <input name="sueldoEmpleado" placeholder="Sueldo del Empleado" type="text" value="@Model.sueldoEmpleado" />
             </div>
 
             <div>
@@ -25,5 +25,24 @@
             </div>
         </form>
     </div>
+
+    <table>
+        <tr>
+            <td>
+                Código
+            </td>
+            <td>
+                Nombre
+            </td>
+        </tr>
+        @foreach (var item in ViewBag.modelo2)
+        {
+            <tr>
+                <td>@item.idEmpleado</td>
+                <td>@item.nombreEmpleado</td>
+            </tr>
+        }
+
+    </table>
 </body>
 </html>

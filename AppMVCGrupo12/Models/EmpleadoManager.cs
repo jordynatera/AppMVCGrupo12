@@ -15,9 +15,18 @@ namespace AppMVCGrupo12.Models
             emp.idEmpleado = 1;
             emp.nombreEmpleado = "Fulanito de Tal";
             emp.sueldoEmpleado = 5000;
+            lista.Add(emp);
 
             emp = new Empleado();
-            emp.idEmpleado = 2;   
+            emp.idEmpleado = 2;
+            emp.nombreEmpleado = "Jordy";
+            emp.sueldoEmpleado = 1400;
+            lista.Add(emp);
+
+            emp = new Empleado();
+            emp.idEmpleado = 3;
+            emp.nombreEmpleado = "Preso #9";
+            emp.sueldoEmpleado = 1300;
 
             lista.Add(emp);
 
