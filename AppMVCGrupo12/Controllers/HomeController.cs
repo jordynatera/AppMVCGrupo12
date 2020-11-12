@@ -22,24 +22,41 @@ namespace AppMVCGrupo12.Controllers
         [HttpGet]
         public ActionResult Capturar()
         {
-            return View();
+            Empleado emp = new Empleado
+            {
+                idEmpleado = 1,
+                nombreEmpleado = "Jordy",
+                sueldoEmpleado = 1562
+            };
+            return View(emp); 
         }
 
         [HttpPost]
-        public ActionResult Capturar(FormCollection datos, Empleado empleado)
+        public ActionResult Capturar(FormCollection datos, Empleado empleado, EmpleadoManager manager)
         {
             /*string id = datos["idEmpleado"];
               string nombre = datos["nombreEmpleado"];
-              string sueldo = datos["sueldoEmpleado"];*/
+              string sueldo = datos["sueldoEmpleado"];Quiero agregar los datos del form a una lista*/
             int id = empleado.idEmpleado;
             string nombre = empleado.nombreEmpleado;
             int sueldo = empleado.sueldoEmpleado;
             ViewBag.msg = nombre;
+            empleado.idEmpleado = id;
+            empleado.nombreEmpleado = nombre;
+            empleado.sueldoEmpleado = sueldo;
             return View(empleado);
         }
 
         public ActionResult ListaEmpleado()
         {
+            return View();
+        }
+
+        public ActionResult Listado()
+        {
+            EmpleadoManager manager = new EmpleadoManager();
+            var lista = manager.GetEmpleados();
+            ViewBag.modelo = lista;
             return View();
         }
 

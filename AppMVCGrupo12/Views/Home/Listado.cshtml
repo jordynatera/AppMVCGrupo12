@@ -1,0 +1,22 @@
+﻿@model AppMVCGrupo12.Models.Empleado
+
+<body>
+    <table>
+        <tr>
+            <td>
+                Código
+            </td>
+            <td>
+                Nombre
+            </td>
+        </tr>
+        @foreach (var item in ViewBag.modelo)
+        {
+            <tr>
+                <td>@item.idEmpleado</td>
+                <td>@item.nombreEmpleado</td>
+            </tr>
+        }
+
+    </table>
+</body>
