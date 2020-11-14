@@ -9,12 +9,16 @@
             <td>
                 Nombre
             </td>
+            <td>
+                Sueldo
+            </td>
         </tr>
         @foreach (var item in ViewBag.modelo)
         {
             <tr>
                 <td>@item.idEmpleado</td>
                 <td>@item.nombreEmpleado</td>
+                <td>@item.sueldoEmpleado</td>
             </tr>
         }
 

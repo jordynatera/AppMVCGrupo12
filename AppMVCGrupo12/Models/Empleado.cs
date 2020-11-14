@@ -9,11 +9,11 @@ namespace AppMVCGrupo12.Models
     public class Empleado
     {
 
-        public int idEmpleado { get; set; }
+        public string idEmpleado { get; set; }
 
         public string nombreEmpleado { get; set; }
 
-        public int sueldoEmpleado { get; set; }
+        public string sueldoEmpleado { get; set; }
 
          
     }

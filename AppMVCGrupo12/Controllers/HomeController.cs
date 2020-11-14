@@ -13,56 +13,64 @@ namespace AppMVCGrupo12.Controllers
         {
             return View();
         }
-       
-        public ActionResult Detalle()
-        {
-            return View();
-        }
+
+
 
         [HttpGet]
         public ActionResult Capturar()
         {
-            Empleado emp = new Empleado
-            {
-                idEmpleado = 1,
-                nombreEmpleado = "Jordy",
-                sueldoEmpleado = 1562
-            };
-            return View(emp); 
-        }
-
-        [HttpPost]
-        public ActionResult Capturar(FormCollection datos, Empleado empleado, EmpleadoManager manager)
-        {
-            /*string id = datos["idEmpleado"];
-              string nombre = datos["nombreEmpleado"];
-              string sueldo = datos["sueldoEmpleado"];Quiero agregar los datos del form a una lista*/
-            int id = empleado.idEmpleado;
-            string nombre = empleado.nombreEmpleado;
-            int sueldo = empleado.sueldoEmpleado;
-            ViewBag.msg = nombre;
-            empleado.idEmpleado = id;
-            empleado.nombreEmpleado = nombre;
-            empleado.sueldoEmpleado = sueldo;
-            return View(empleado);
-        }
-
-        public ActionResult ListaEmpleado()
-        {
             return View();
         }
 
-        public ActionResult Listado()
+        [HttpPost]
+        public ActionResult Capturar(FormCollection datos, Empleado empleado)
+        {
+            string id = datos["idEmpleado"];
+            string nombre = datos["nombreEmpleado"];
+            string sueldo = datos["sueldoEmpleado"];
+            ViewBag.msg = "Id = " + id + "       Nombre " + nombre + "      Sueldo " + sueldo;
+            //string value = Convert.ToString(collection["inputName"]);
+
+            return View();
+        }
+
+        public ActionResult Create(FormCollection collection)
+        {
+            string id = collection["idEmpleado"];
+            string nombre = collection["nombreEmpleado"];
+            string sueldo = collection["sueldoEmpleado"];
+            ViewBag.msg = "Id = " + id + "       Nombre " + nombre + "      Sueldo " + sueldo;
+
+            var lista = new List<Empleado>();
+            var emp = new Empleado();
+
+            emp.idEmpleado = id;
+            emp.nombreEmpleado = nombre;
+            emp.sueldoEmpleado = sueldo;
+
+            lista.Add(emp);
+
+            return RedirectToAction("Listado", emp);
+        }
+
+        public ActionResult Listar()
         {
             EmpleadoManager manager = new EmpleadoManager();
             var lista = manager.GetEmpleados();
             ViewBag.modelo = lista;
             return View();
         }
-
-        public ActionResult DetalleEmpleado()
+        public ActionResult Details()
         {
             return View();
+        }
+
+        public ActionResult Listado(Empleado reg)
+        {
+            EmpleadoManager manager = new EmpleadoManager();
+            var lista = manager.GetEmpleados();
+            ViewBag.modelo = lista;
+            return View(reg);
         }
 
         public ActionResult About()
